@@ -1,10 +1,10 @@
-name: Genepay Merchant App
+name: genepay_merchant_app
 description: "A new Flutter project."
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.5.0 <=3.10.4"
+  sdk: ">=3.5.0 <=3.10.7"
 dependencies:
   flutter:
     sdk: flutter
