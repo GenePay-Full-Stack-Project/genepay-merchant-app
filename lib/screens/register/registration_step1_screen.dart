@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-// TODO: Implement this service
-// import '../../services/merchant_api_service.dart';
+import '../../services/merchant_api_service.dart';
 
 class RegistrationStep1Screen extends StatefulWidget {
   const RegistrationStep1Screen({super.key});
@@ -18,8 +17,7 @@ class _RegistrationStep1ScreenState extends State<RegistrationStep1Screen> {
   final _phoneController = TextEditingController();
   final _businessAddressController = TextEditingController();
   final _businessTypeController = TextEditingController();
-  // TODO: Implement API service
-  // final _merchantApiService = MerchantApiService();
+  final _merchantApiService = MerchantApiService();
   bool _isLoading = false;
 
   @override
@@ -39,10 +37,7 @@ class _RegistrationStep1ScreenState extends State<RegistrationStep1Screen> {
     setState(() => _isLoading = true);
 
     try {
-      // TODO: Implement API call
-      await Future.delayed(const Duration(seconds: 1));
-
-      /* TODO: Uncomment when API service is ready
+      // Send verification code to email
       final response = await _merchantApiService.sendVerificationCode(
         _emailController.text.trim(),
       );
@@ -50,9 +45,6 @@ class _RegistrationStep1ScreenState extends State<RegistrationStep1Screen> {
       if (!mounted) return;
 
       if (response.success) {
-      */
-
-      if (mounted) {
         // Store form data for later use
         final registrationData = {
           'email': _emailController.text.trim(),
@@ -76,9 +68,6 @@ class _RegistrationStep1ScreenState extends State<RegistrationStep1Screen> {
           '/registration_step2',
           arguments: registrationData,
         );
-      }
-
-      /* TODO: Uncomment when API service is ready
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -87,7 +76,6 @@ class _RegistrationStep1ScreenState extends State<RegistrationStep1Screen> {
           ),
         );
       }
-      */
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(

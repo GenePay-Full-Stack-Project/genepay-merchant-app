@@ -1,6 +1,6 @@
 {
-    "name": "genepay_merchant_app",
-    "short_name": "genepay_merchant_app",
+    "name": "bio_pay_merchant",
+    "short_name": "bio_pay_merchant",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

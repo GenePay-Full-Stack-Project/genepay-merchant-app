@@ -1,7 +1,6 @@
+import 'package:bio_pay_merchant/services/merchant_api_service.dart';
 import 'package:flutter/material.dart';
-// TODO: Implement these services
-// import '../../services/merchant_api_service.dart';
-// import '../../models/merchant_registration_request.dart';
+import '../../models/merchant_registration_request.dart';
 
 class RegistrationStep3Screen extends StatefulWidget {
   const RegistrationStep3Screen({super.key});
@@ -19,10 +18,8 @@ class _RegistrationStep3ScreenState extends State<RegistrationStep3Screen> {
   bool _obscureConfirm = true;
   bool _hasMinLength = false;
   bool _isLoading = false;
-  // ignore: unused_field
   late Map<String, dynamic> _registrationData;
-  // TODO: Implement API service
-  // final _merchantApiService = MerchantApiService();
+  final _merchantApiService = MerchantApiService();
 
   @override
   void didChangeDependencies() {
@@ -58,10 +55,7 @@ class _RegistrationStep3ScreenState extends State<RegistrationStep3Screen> {
     setState(() => _isLoading = true);
 
     try {
-      // TODO: Implement API call
-      await Future.delayed(const Duration(seconds: 2));
-
-      /* TODO: Uncomment when API service is ready
+      // Create registration request
       final registrationRequest = MerchantRegistrationRequest(
         email: _registrationData['email'],
         password: _passwordController.text,
@@ -72,8 +66,8 @@ class _RegistrationStep3ScreenState extends State<RegistrationStep3Screen> {
         businessType: _registrationData['businessType'],
       );
 
+      // Call API to register merchant
       await _merchantApiService.registerMerchant(registrationRequest);
-      */
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(

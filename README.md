@@ -1,4 +1,4 @@
-# genepay_merchant_app
+# bio_pay_merchant
 
 A new Flutter project.
 

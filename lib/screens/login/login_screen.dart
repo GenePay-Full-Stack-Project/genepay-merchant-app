@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-// import 'package:shared_preferences/shared_preferences.dart'; // TODO: Use when API is ready
+import 'package:shared_preferences/shared_preferences.dart';
 
-// TODO: Implement these services
-// import '../../services/merchant_api_service.dart';
-// import '../../models/login_request.dart';
+import '../../services/merchant_api_service.dart';
+import '../../models/login_request.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -19,8 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
   bool _isLoading = false;
   String? _errorMessage;
 
-  // TODO: Implement API service
-  // final MerchantApiService _merchantApiService = MerchantApiService();
+  final MerchantApiService _merchantApiService = MerchantApiService();
 
   @override
   void dispose() {
@@ -43,18 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
       });
       return;
     }
-
-    // TODO: Implement actual API login
     try {
-      // Simulated login delay
-      await Future.delayed(const Duration(seconds: 2));
-
-      // For now, just navigate to dashboard
-      if (mounted) {
-        Navigator.pushReplacementNamed(context, '/dashboard');
-      }
-
-      /* TODO: Uncomment when API service is ready
       await _merchantApiService.initialize();
       final response = await _merchantApiService.loginMerchant(
         LoginRequest(email: email, password: password),
@@ -68,14 +55,13 @@ class _LoginScreenState extends State<LoginScreen> {
 
         // Navigate to dashboard
         if (mounted) {
-          Navigator.pushReplacementNamed(context, '/dashboard');
+          Navigator.pushReplacementNamed(context, '/merchant_dashboard');
         }
       } else {
         setState(() {
           _errorMessage = response.error ?? 'Login failed.';
         });
       }
-      */
     } catch (e) {
       setState(() {
         _errorMessage = e.toString();

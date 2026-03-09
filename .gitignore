@@ -33,18 +33,6 @@ migrate_working_dir/
 /build/
 /coverage/
 
-# Generated plugin files
-**/flutter/generated_plugin_registrant.cc
-**/flutter/generated_plugin_registrant.h
-**/flutter/generated_plugins.cmake
-**/flutter/GeneratedPluginRegistrant.swift
-**/flutter/GeneratedPluginRegistrant.m
-**/flutter/GeneratedPluginRegistrant.h
-**/flutter/generated_plugins.mk
-windows/flutter/generated_plugins.cmake
-linux/flutter/generated_plugins.cmake
-macos/Flutter/GeneratedPluginRegistrant.swift
-
 # Symbolication related
 app.*.symbols
 
@@ -55,4 +43,3 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-

@@ -1,4 +1,4 @@
-package com.example.genepay_merchant_app
+package com.example.bio_pay_merchant
 
 import io.flutter.embedding.android.FlutterActivity
 

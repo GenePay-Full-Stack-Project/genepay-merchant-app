@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-// TODO: Implement this service
-// import '../../services/merchant_api_service.dart';
+import '../../services/merchant_api_service.dart';
 
 class RegistrationStep2Screen extends StatefulWidget {
   const RegistrationStep2Screen({super.key});
@@ -17,8 +16,7 @@ class _RegistrationStep2ScreenState extends State<RegistrationStep2Screen> {
     (_) => TextEditingController(),
   );
   late Map<String, dynamic> _registrationData;
-  // TODO: Implement API service
-  // final _merchantApiService = MerchantApiService();
+  final _merchantApiService = MerchantApiService();
   bool _isLoading = false;
 
   @override
@@ -58,10 +56,7 @@ class _RegistrationStep2ScreenState extends State<RegistrationStep2Screen> {
     setState(() => _isLoading = true);
 
     try {
-      // TODO: Implement API call
-      await Future.delayed(const Duration(seconds: 1));
-
-      /* TODO: Uncomment when API service is ready
+      // Verify email with verification code
       final response = await _merchantApiService.verifyEmail(
         _registrationData['email'],
         code,
@@ -70,9 +65,6 @@ class _RegistrationStep2ScreenState extends State<RegistrationStep2Screen> {
       if (!mounted) return;
 
       if (response.success) {
-      */
-
-      if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Email verified successfully'),
@@ -86,9 +78,6 @@ class _RegistrationStep2ScreenState extends State<RegistrationStep2Screen> {
           '/registration_step3',
           arguments: _registrationData,
         );
-      }
-
-      /* TODO: Uncomment when API service is ready
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -99,7 +88,6 @@ class _RegistrationStep2ScreenState extends State<RegistrationStep2Screen> {
           ),
         );
       }
-      */
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -120,10 +108,6 @@ class _RegistrationStep2ScreenState extends State<RegistrationStep2Screen> {
     setState(() => _isLoading = true);
 
     try {
-      // TODO: Implement API call
-      await Future.delayed(const Duration(seconds: 1));
-
-      /* TODO: Uncomment when API service is ready
       final response = await _merchantApiService.sendVerificationCode(
         _registrationData['email'],
       );
@@ -131,18 +115,12 @@ class _RegistrationStep2ScreenState extends State<RegistrationStep2Screen> {
       if (!mounted) return;
 
       if (response.success) {
-      */
-
-      if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Verification code resent to your email'),
             backgroundColor: Colors.green,
           ),
         );
-      }
-
-      /* TODO: Uncomment when API service is ready
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -153,7 +131,6 @@ class _RegistrationStep2ScreenState extends State<RegistrationStep2Screen> {
           ),
         );
       }
-      */
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
