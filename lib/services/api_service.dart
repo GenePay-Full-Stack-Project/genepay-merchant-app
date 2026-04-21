@@ -351,7 +351,7 @@ class ApiService {
   Future<void> removeMerchantCard(int merchantId, int cardId) async {
     final response = await delete<void>(
       '/cards/merchant/$merchantId/$cardId',
-      (json) => null,
+      (json) {},
     );
 
     if (!response.success) {

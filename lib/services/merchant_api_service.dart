@@ -30,7 +30,7 @@ class MerchantApiService {
       return await _apiService.post<void>(
         '/merchants/send-verification-code',
         request.toJson(),
-        (_) => null,
+        (_) {},
       );
     } on ApiException catch (e) {
       return ApiResponse(success: false, error: e.message);
@@ -50,7 +50,7 @@ class MerchantApiService {
       return await _apiService.post<void>(
         '/merchants/verify-email',
         request.toJson(),
-        (_) => null,
+        (_) {},
       );
     } on ApiException catch (e) {
       return ApiResponse(success: false, error: e.message);

@@ -32,8 +32,8 @@ class _FaceCaptureScreenState extends State<FaceCaptureScreen> {
   CameraController? _cameraController;
   List<CameraDescription> _cameras = [];
   bool _isCameraInitialized = false;
-  bool _isProcessing = false;
-  bool _processedSuccess = false;
+  final bool _isProcessing = false;
+  final bool _processedSuccess = false;
   final PaymentApiService _paymentService = PaymentApiService();
 
   @override
@@ -165,7 +165,7 @@ class _FaceCaptureScreenState extends State<FaceCaptureScreen> {
             errorMsg.toLowerCase().contains('no matching user')) {
           _showErrorDialog(
             'Face Not Enrolled',
-            'This customer has not completed face enrollment.\\n\\nPlease ask the customer to:\\n1. Open their BioPay app\\n2. Navigate to \"Enroll Face\"\\n3. Scan the QR code you will generate\\n\\nOr use \"Enroll Customer\" from the home screen to register them now.',
+            'This customer has not completed face enrollment.\\n\\nPlease ask the customer to:\\n1. Open their BioPay app\\n2. Navigate to "Enroll Face"\\n3. Scan the QR code you will generate\\n\\nOr use "Enroll Customer" from the home screen to register them now.',
           );
         } else {
           _showErrorDialog('Payment Failed', errorMsg);
