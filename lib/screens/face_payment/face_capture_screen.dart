@@ -8,7 +8,6 @@ import 'package:permission_handler/permission_handler.dart';
 
 import '../../services/payment_api_service.dart';
 import 'payment_success_screen.dart';
-import '../face_enrollment/enroll_customer_face_screen.dart';
 
 class FaceCaptureScreen extends StatefulWidget {
   final String amount;
@@ -165,7 +164,7 @@ class _FaceCaptureScreenState extends State<FaceCaptureScreen> {
             errorMsg.toLowerCase().contains('no matching user')) {
           _showErrorDialog(
             'Face Not Enrolled',
-            'This customer has not completed face enrollment.\\n\\nPlease ask the customer to:\\n1. Open their BioPay app\\n2. Navigate to "Enroll Face"\\n3. Scan the QR code you will generate\\n\\nOr use "Enroll Customer" from the home screen to register them now.',
+            'This customer has not enrolled their face yet.\n\nPlease ask them to open their GenePay app, go to Wallet → Linked Biometrics, and tap "Add a New Biometric" to complete setup.',
           );
         } else {
           _showErrorDialog('Payment Failed', errorMsg);
@@ -244,40 +243,6 @@ class _FaceCaptureScreenState extends State<FaceCaptureScreen> {
                         style: TextStyle(
                           color: _navy,
                           fontWeight: FontWeight.w600,
-                          fontSize: 15,
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).pop(); // Close dialog
-                        Navigator.of(
-                          context,
-                        ).pop(); // Close face capture screen
-                        // Navigate to Enroll Customer screen
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const EnrollCustomerFaceScreen(),
-                          ),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical: 14),
-                        backgroundColor: _accent,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        elevation: 0,
-                      ),
-                      child: const Text(
-                        'Enroll Now',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w700,
                           fontSize: 15,
                         ),
                       ),
