@@ -14,7 +14,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   void _next() {
     if (_page < 2) {
-      _controller.nextPage(duration: const Duration(milliseconds: 400), curve: Curves.easeInOut);
+      _controller.nextPage(
+        duration: const Duration(milliseconds: 400),
+        curve: Curves.easeInOut,
+      );
     } else {
       Navigator.of(context).pushReplacementNamed('/auth');
     }
@@ -39,7 +42,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 onPageChanged: (i) => setState(() => _page = i),
                 children: [
                   OnboardingPage(
-                    title: 'Welcome to FaceWallet',
+                    title: 'Welcome to GenePay',
                     subtitle: 'Pay with just your face\nfast, simple, secure.',
                     buttonText: 'Continue',
                     onButtonPressed: _next,
@@ -55,7 +58,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ),
                   OnboardingPage(
                     title: 'Ready to Pay?',
-                    subtitle: 'Set up your face now and\nstart making payments.',
+                    subtitle:
+                        'Set up your face now and\nstart making payments.',
                     buttonText: 'Ready!',
                     onButtonPressed: _next,
                     imageAsset: 'assets/images/onboarding_ready.png',
@@ -75,7 +79,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     width: _page == index ? 18 : 8,
                     height: 8,
                     decoration: BoxDecoration(
-                      color: _page == index ? Colors.deepOrange : Colors.grey.shade300,
+                      color: _page == index
+                          ? Colors.deepOrange
+                          : Colors.grey.shade300,
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),

@@ -31,10 +31,7 @@ class OnboardingPage extends StatelessWidget {
             textAlign: TextAlign.center,
             text: TextSpan(
               children: _buildTitleSpans(title),
-              style: const TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-              ),
+              style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
             ),
           ),
           const SizedBox(height: 32),
@@ -52,7 +49,11 @@ class OnboardingPage extends StatelessWidget {
                     color: Colors.grey.shade100,
                     borderRadius: BorderRadius.circular(24),
                   ),
-                  child: const Icon(Icons.wallet_giftcard, size: 96, color: Colors.deepOrange),
+                  child: const Icon(
+                    Icons.wallet_giftcard,
+                    size: 96,
+                    color: Colors.deepOrange,
+                  ),
                 ),
               ),
             )
@@ -67,7 +68,11 @@ class OnboardingPage extends StatelessWidget {
                     color: Colors.grey.shade100,
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  child: const Icon(Icons.wallet_giftcard, size: 96, color: Colors.deepOrange),
+                  child: const Icon(
+                    Icons.wallet_giftcard,
+                    size: 96,
+                    color: Colors.deepOrange,
+                  ),
                 ),
               ),
             ),
@@ -81,7 +86,9 @@ class OnboardingPage extends StatelessWidget {
               onPressed: onButtonPressed,
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFFFF5722),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(28),
+                ),
                 elevation: 6,
               ),
               child: Row(
@@ -95,10 +102,13 @@ class OnboardingPage extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
+                  if (buttonText == 'Continue') const SizedBox(width: 8),
                   if (buttonText == 'Continue')
-                    const SizedBox(width: 8),
-                  if (buttonText == 'Continue')
-                    const Icon(Icons.arrow_forward, color: Colors.white, size: 20),
+                    const Icon(
+                      Icons.arrow_forward,
+                      color: Colors.white,
+                      size: 20,
+                    ),
                 ],
               ),
             ),
@@ -110,7 +120,7 @@ class OnboardingPage extends StatelessWidget {
   }
 
   List<TextSpan> _buildTitleSpans(String title) {
-    if (title == 'Welcome to FaceWallet') {
+    if (title == 'Welcome to GenePay') {
       return [
         const TextSpan(
           text: 'Welcome to ',
@@ -120,7 +130,7 @@ class OnboardingPage extends StatelessWidget {
           ),
         ),
         const TextSpan(
-          text: 'FaceWallet',
+          text: 'GenePay',
           style: TextStyle(
             color: Color(0xFFFF5722),
             fontWeight: FontWeight.bold,
@@ -181,59 +191,64 @@ class OnboardingPage extends StatelessWidget {
       final parts = remaining.split(word);
       if (parts.length > 1) {
         // Add the text before the colored word
-        spans.add(TextSpan(
-          text: parts[0],
-          style: const TextStyle(
-            fontSize: 16,
-            color: Color(0xFF2C2C2C),
-            
-            fontWeight: FontWeight.w500,
+        spans.add(
+          TextSpan(
+            text: parts[0],
+            style: const TextStyle(
+              fontSize: 16,
+              color: Color(0xFF2C2C2C),
+
+              fontWeight: FontWeight.w500,
+            ),
           ),
-        ));
+        );
         // Add the colored word
-        spans.add(TextSpan(
-          text: word,
-          style: const TextStyle(
-            fontSize: 16,
-            color: Color(0xFFFF5722),
-            
-            fontWeight: FontWeight.w500,
+        spans.add(
+          TextSpan(
+            text: word,
+            style: const TextStyle(
+              fontSize: 16,
+              color: Color(0xFFFF5722),
+
+              fontWeight: FontWeight.w500,
+            ),
           ),
-        ));
+        );
         remaining = parts.sublist(1).join(word);
       }
     }
 
     // Add any remaining text
     if (remaining.isNotEmpty) {
-      spans.add(TextSpan(
-        text: remaining,
-        style: const TextStyle(
-          fontSize: 16,
-          color: Color(0xFF2C2C2C),
-          fontWeight: FontWeight.w500,
+      spans.add(
+        TextSpan(
+          text: remaining,
+          style: const TextStyle(
+            fontSize: 16,
+            color: Color(0xFF2C2C2C),
+            fontWeight: FontWeight.w500,
+          ),
         ),
-      ));
+      );
     }
 
     // If no colored words were found, just show the subtitle normally
     if (spans.isEmpty) {
-      spans.add(TextSpan(
-        text: subtitle,
-        style: const TextStyle(
-          fontSize: 16,
-          color: Color(0xFF2C2C2C),
-          fontWeight: FontWeight.w500,
+      spans.add(
+        TextSpan(
+          text: subtitle,
+          style: const TextStyle(
+            fontSize: 16,
+            color: Color(0xFF2C2C2C),
+            fontWeight: FontWeight.w500,
+          ),
         ),
-      ));
+      );
     }
 
     return RichText(
       textAlign: TextAlign.center,
-      text: TextSpan(
-        children: spans,
-        style: const TextStyle(height: 1.5),
-      ),
+      text: TextSpan(children: spans, style: const TextStyle(height: 1.5)),
     );
   }
 }

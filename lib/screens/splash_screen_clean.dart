@@ -149,7 +149,7 @@ class _CleanSplashScreenState extends State<CleanSplashScreen> {
                 text: const TextSpan(
                   children: [
                     TextSpan(
-                      text: 'FaceWallet',
+                      text: 'GenePay',
                       style: TextStyle(
                         fontSize: 32,
                         fontWeight: FontWeight.bold,

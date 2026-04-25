@@ -27,13 +27,17 @@ class AuthScreen extends StatelessWidget {
                       color: Colors.grey.shade100,
                       borderRadius: BorderRadius.circular(24),
                     ),
-                    child: const Icon(Icons.fingerprint, size: 96, color: Colors.deepPurple),
+                    child: const Icon(
+                      Icons.fingerprint,
+                      size: 96,
+                      color: Colors.deepPurple,
+                    ),
                   ),
                 ),
               ),
               const SizedBox(height: 28),
               const Text(
-                'FaceWallet',
+                'GenePay',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 32,
@@ -45,10 +49,7 @@ class AuthScreen extends StatelessWidget {
               Text(
                 'Your face is your wallet',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Color(0xFF2C2C2C),
-                ),
+                style: TextStyle(fontSize: 14, color: Color(0xFF2C2C2C)),
               ),
               const Spacer(),
               SizedBox(
@@ -58,7 +59,9 @@ class AuthScreen extends StatelessWidget {
                   onPressed: () => Navigator.pushNamed(context, '/login'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFFFF5722),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(28),
+                    ),
                     elevation: 6,
                   ),
                   child: const Text(
@@ -76,10 +79,13 @@ class AuthScreen extends StatelessWidget {
                 width: double.infinity,
                 height: 52,
                 child: OutlinedButton(
-                  onPressed: () => Navigator.pushNamed(context, '/registration_step1'),
+                  onPressed: () =>
+                      Navigator.pushNamed(context, '/registration_step1'),
                   style: OutlinedButton.styleFrom(
                     side: const BorderSide(color: Color(0xFFFF5722), width: 2),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(28),
+                    ),
                   ),
                   child: const Text(
                     'Sign up',
