@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'face_payment/set_amount_screen.dart';
 import 'transaction/transaction_history_screen.dart';
 import 'package:bio_pay_merchant/screens/analytics_screen.dart';
-import 'package:bio_pay_merchant/screens/face_enrollment/enroll_customer_face_screen.dart';
 import 'transaction/transaction_details_screen.dart';
 import 'profile/profile_screen.dart';
 import 'payment_methods/payment_methods_screen.dart';
@@ -402,18 +401,15 @@ class _MerchantHomeScreenState extends State<MerchantHomeScreen>
                     children: [
                       Expanded(
                         child: GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) =>
-                                    const EnrollCustomerFaceScreen(),
-                              ),
-                            );
-                          },
+                          onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const PaymentMethodsScreen(),
+                            ),
+                          ),
                           child: _FeatureCard(
-                            icon: Icons.face_rounded,
-                            label: 'Enroll Client',
+                            icon: Icons.credit_card,
+                            label: 'Payment Cards',
                             panel: _panel,
                             accent: _accent,
                           ),
@@ -425,12 +421,12 @@ class _MerchantHomeScreenState extends State<MerchantHomeScreen>
                           onTap: () => Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) => const PaymentMethodsScreen(),
+                              builder: (_) => const TransactionHistoryScreen(),
                             ),
                           ),
                           child: _FeatureCard(
-                            icon: Icons.credit_card,
-                            label: 'Payment Cards',
+                            icon: Icons.history,
+                            label: 'Transactions',
                             panel: _panel,
                             accent: _accent,
                           ),

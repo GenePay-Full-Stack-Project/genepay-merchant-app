@@ -67,15 +67,25 @@ class _RegistrationStep3ScreenState extends State<RegistrationStep3Screen> {
       );
 
       // Call API to register merchant
-      await _merchantApiService.registerMerchant(registrationRequest);
+      final response = await _merchantApiService.registerMerchant(registrationRequest);
 
-      if (mounted) {
+      if (!mounted) return;
+
+      if (response.success) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Registration successful! Please login.'),
+            backgroundColor: Colors.green,
           ),
         );
         Navigator.pushNamedAndRemoveUntil(context, '/login', (route) => false);
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(response.error ?? 'Registration failed. Please try again.'),
+            backgroundColor: Colors.red,
+          ),
+        );
       }
     } catch (e) {
       if (mounted) {

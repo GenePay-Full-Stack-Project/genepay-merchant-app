@@ -1,10 +1,16 @@
 class ApiConfig {
   // Payment Service
-  static const String paymentServiceBaseUrl = 'https://api.facewallet-payment.corszero.com';
+  static const String paymentServiceBaseUrl = String.fromEnvironment(
+    'API_BASE_URL',
+    defaultValue: 'http://54.255.53.212',
+  );
   static const String paymentApiPrefix = '/api/v1';
 
   // Biometric Service
-  static const String biometricServiceBaseUrl = 'https://api.facewallet-biometric.corszero.com';
+  static const String biometricServiceBaseUrl = String.fromEnvironment(
+    'BIOMETRIC_BASE_URL',
+    defaultValue: 'http://54.255.53.212',
+  );
   static const String biometricApiPrefix = '';
 
   // Full endpoints

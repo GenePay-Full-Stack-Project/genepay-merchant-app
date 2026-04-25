@@ -53,7 +53,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
     super.dispose();
   }
 
-  String _formatCurrency(double v) => '€' + v.toStringAsFixed(2);
+  String _formatCurrency(double v) => '€${v.toStringAsFixed(2)}';
   double _sum(List<double> arr) => arr.fold(0.0, (p, e) => p + e);
 
   Widget _segPill(String label) {
@@ -299,7 +299,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   child: Text(
-                                    (pct >= 0 ? '+' : '') + pct.toStringAsFixed(0) + '%',
+                                    '${pct >= 0 ? '+' : ''}${pct.toStringAsFixed(0)}%',
                                     style: TextStyle(
                                       color: pct >= 0 ? _success : Colors.red,
                                       fontWeight: FontWeight.w700,

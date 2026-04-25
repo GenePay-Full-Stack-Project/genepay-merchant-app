@@ -290,7 +290,7 @@ class _FaceEnrollmentQrScreenState extends State<FaceEnrollmentQrScreen>
                               _DetailItem(
                                 icon: Icons.fingerprint,
                                 label: 'Face ID',
-                                value: widget.faceId.substring(0, 12) + '...',
+                                value: '${widget.faceId.substring(0, 12)}...',
                               ),
                               const SizedBox(height: 8),
                               _DetailItem(
@@ -473,7 +473,7 @@ class _DetailItem extends StatelessWidget {
         Icon(icon, color: navy.withOpacity(0.6), size: 18),
         const SizedBox(width: 10),
         Text(
-          label + ':',
+          '$label:',
           style: TextStyle(
             color: navy.withOpacity(0.6),
             fontSize: 13,

@@ -12,7 +12,7 @@ class PaymentSuccessScreen extends StatefulWidget {
 }
 
 class _PaymentSuccessScreenState extends State<PaymentSuccessScreen> {
-  static const Color _navy = const Color(0xFF1E1E8B);
+  static const Color _navy = Color(0xFF1E1E8B);
   static const Color _accent = Color(0xFFFF5722);
 
   final TransactionApiService _transactionService = TransactionApiService();
